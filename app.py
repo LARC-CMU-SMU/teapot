@@ -61,8 +61,8 @@ def accept_dc_get():
     message = "dc requested from: %s" % request.environ["REMOTE_ADDR"]
     logger.info(message)
     pin = request.args.get('pin')
-    if pin not in ('18', '27'):
-        return "send request with pin number either 18 or 27", 400
+    if pin not in ('12', '13'):
+        return "send request with pin number either 12 or 13", 400
     pin = int(pin)
     dc = get_dc_from_rpi(pin)
     return jsonify({str(pin): dc})
@@ -101,7 +101,7 @@ def validate_dc_post_request_and_get_data(json_obj):
     if freq not in range(0, 3000):
         return False
     pin = json_obj.get('pin')
-    if pin not in range(12, 13):
+    if pin not in (12, 13):
         return False
     return [pin, freq, dc]
 
