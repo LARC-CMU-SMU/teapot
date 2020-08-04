@@ -27,6 +27,7 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 PROCESS_NAME = "TEAPOT"
+PI = pigpio.pi()
 
 
 @app.route("/", methods=["GET"])
@@ -65,6 +66,7 @@ def accept_dc_get():
         return "send request with pin number either 12 or 13", 400
     pin = int(pin)
     dc = get_dc_from_rpi(pin)
+    logger.debug("dc measured as {}".format(dc))
     return jsonify({str(pin): dc})
 
 
@@ -80,16 +82,16 @@ def get_dc_from_request(request_json):
 
 def get_dc_from_rpi(pin):
     try:
-        dc = pigpio.pi().get_PWM_dutycycle(pin)
+        dc = PI.get_PWM_dutycycle(pin)
     except Exception as e:
-        logger.error(str(e))
+        logger.error("error :{}".format(str(e)))
         dc = -1
     return dc
 
 
 def set_dc(pin, freq, dc):
     logger.info("setting pin {0} to dc {1} at freq {2}".format(pin, freq, dc))
-    pigpio.pi().hardware_PWM(pin, freq, dc)
+    PI.hardware_PWM(pin, freq, dc)
     pass
 
 
