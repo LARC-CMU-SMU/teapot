@@ -97,10 +97,10 @@ def set_dc(pin, freq, dc):
 
 def validate_dc_post_request_and_get_data(json_obj):
     dc = json_obj.get('dc')
-    if dc not in range(0, 1000000):
+    if dc not in range(0, 1000001):
         return False
     freq = json_obj.get('freq')
-    if freq not in range(0, 3000):
+    if freq not in range(0, 3001):
         return False
     pin = json_obj.get('pin')
     if pin not in (12, 13):
