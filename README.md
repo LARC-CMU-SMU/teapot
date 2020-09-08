@@ -11,7 +11,7 @@ flask server to run on rpi zero
 
 ## how to
 * install the dependencies
-* enable the pigpiod at boot(for future)`$sudo systemctl enabel pigpiod`
+* enable the pigpiod at boot(for future)`$sudo systemctl enable pigpiod`
 * start the pigpiod for current session`$sudo systemctl start pigpiod`
 * make sure pigpiod is running (http://abyz.me.uk/rpi/pigpio/download.html)
 * test the flask and gunicorn with `$gunicorn app:app --bind 0.0.0.0`
