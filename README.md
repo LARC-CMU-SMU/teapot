@@ -5,7 +5,7 @@ flask server to run on rpi zero
 * flask `$sudo pip3 install flask`
 * gunicorn `$sudo pip3 install gunicorn`
 * pigpio (http://abyz.me.uk/rpi/pigpio/download.html)
-* supervisor `$sudo pip3 install supervisor`
+* supervisor `$sudo apt install supervisor`
 * bh1750 `$sudo pip3 install adafruit-circuitpython-bh1750`
 * tca9548a(i2c multiplexer)`$sudo pip3 install adafruit-circuitpython-tca9548a`
 
