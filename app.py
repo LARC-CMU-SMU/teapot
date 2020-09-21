@@ -71,7 +71,7 @@ def accept_dc_get():
 
 
 def get_lux():
-    lux = get_lux_readings()
+    lux = get_lux_readings(logger)
     return jsonify(lux)
 
 
