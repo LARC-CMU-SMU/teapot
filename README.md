@@ -5,10 +5,14 @@ flask server to run on rpi zero
 * flask `$sudo pip3 install flask`
 * gunicorn `$sudo pip3 install gunicorn`
 * pigpio (http://abyz.me.uk/rpi/pigpio/download.html)
-* supervisor `$sudo install supervisor`
+* supervisor `$sudo apt install supervisor`
+* bh1750 `$sudo pip3 install adafruit-circuitpython-bh1750`
+* tca9548a(i2c multiplexer)`$sudo pip3 install adafruit-circuitpython-tca9548a`
 
 ## how to
 * install the dependencies
+* enable the pigpiod at boot(for future)`$sudo systemctl enable pigpiod`
+* start the pigpiod for current session`$sudo systemctl start pigpiod`
 * make sure pigpiod is running (http://abyz.me.uk/rpi/pigpio/download.html)
 * test the flask and gunicorn with `$gunicorn app:app --bind 0.0.0.0`
 * update the teapot.conf(used for supervisor) file and create mentioned log folder (/var/log/teapot)
