@@ -5,7 +5,7 @@ import config
 import sys
 import pigpio
 
-import bh1750
+from m_tca9548a import get_lux_readings
 
 app = Flask(__name__)
 
@@ -32,7 +32,7 @@ PI = pigpio.pi()
 
 @app.route("/", methods=["GET"])
 def welcome():
-    return "welcome to raspberry pi node"
+    return "would you like some tea?"
 
 
 @app.route("/lux", methods=["GET"])
@@ -71,7 +71,7 @@ def accept_dc_get():
 
 
 def get_lux():
-    lux = bh1750.get_lux_readings()
+    lux = get_lux_readings()
     return jsonify(lux)
 
 
